@@ -43,6 +43,15 @@
                 android:src="@drawable/refusebutton" />
 
             <ImageButton
+                android:id="@+id/btnAggiungi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/btnModifica"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/confirmbutton"
+                android:src="@drawable/confirmbutton" />
+
+            <ImageButton
                 android:id="@+id/btnModifica"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

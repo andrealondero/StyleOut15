@@ -38,11 +38,11 @@ public class TopFragment extends Fragment {
     private DBAdapterLogin db;
 
     public static final String[] titles = new String[] {
-            "Apricot", "AshGray", "Azure", "Beige", "Black", "Blue", "BlueGray", "BlueJeans",
-            "BottleGreen", "Celeste", "Coral", "DarkGreen", "Gold", "Gray", "Green",
-            "GreenBlue", "Lavender", "LightBlue", "Magenta", "MidnightBlue", "MintGreen",
-            "NavyBlue", "OceanBlue", "OceanGreen", "Olive", "Orange", "Pink", "Red", "Rose",
-            "Sand", "Scarlet", "Silver", "Tangerine", "Turquoise", "Violet", "White", "Yellow"};
+            "apricot", "ashGray", "azure", "beige", "black", "blue", "bluegray", "bluejeans",
+            "bottlegreen", "celeste", "coral", "darkGreen", "gold", "gray", "green",
+            "greenblue", "lavender", "lightblue", "magenta", "midnightblue", "mintgreen",
+            "navyblue", "oceanBlue", "oceanGreen", "olive", "orange", "pink", "red", "rose",
+            "sand", "scarlet", "silver", "tangerine", "turquoise", "violet", "white", "yellow"};
 
     public static final String[]hexcodes = {
             "#FACEB1", "#B4BFB7", "#0080FF", "#F5F5DC", "#000000", "#0000FF", "#6699CC", "#5CAEED", "#006B4F",
@@ -123,7 +123,6 @@ public class TopFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 String itemvalue = parent.getItemAtPosition( position ).toString();
-                Toast.makeText( getActivity(), "SELECTED" + itemvalue, Toast.LENGTH_SHORT ).show();
                 vestito.setColore(itemvalue);
                 vestito.setColorCode(hexcodes[position]);
                 topImageView.setBackgroundColor( Color.parseColor(hexcodes[position]));
@@ -149,6 +148,7 @@ public class TopFragment extends Fragment {
         list.add("Canvas"); list.add("Denim"); list.add("Tartan"); list.add("Upholstery");
         // Shiny glossy fabrics
         list.add("Satin"); list.add("Silk"); list.add("PolishedCotton");
+
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fabricSelect.setAdapter(adapter1);
@@ -169,7 +169,7 @@ public class TopFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 db.addVestito(vestito.getColore(), vestito.getColorCode(), Integer.parseInt(vestito.isDisponibile()),
-                        vestito.getNome(), "avorio", Integer.parseInt(vestito.getTipoVestito()), vestito.getPic_tag());
+                        vestito.getNome(), "cotone", Integer.parseInt(vestito.getTipoVestito()), vestito.getPic_tag());
                 Toast.makeText(view.getContext(), "vestito aggiunto", Toast.LENGTH_SHORT).show();
             }
         });

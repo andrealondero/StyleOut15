@@ -35,6 +35,14 @@ public class Vestito {
     private String colore;
     private String colorCode;
 
+    public String getColore() {
+        return colore;
+    }
+
+    public void setColore(String colore) {
+        this.colore = colore;
+    }
+
     public String getColorCode() {
         return colorCode;
     }
@@ -43,28 +51,12 @@ public class Vestito {
         this.colorCode = colorCode;
     }
 
-    public String getIsDisponibile() {
-        return isDisponibile;
-    }
-
-    public void setIsDisponibile(String isDisponibile) {
-        this.isDisponibile = isDisponibile;
-    }
-
     private String isDisponibile;
     private String nome;
     private String tessuto;
     private String tipoVestito;
     private String style;
     private int pic_tag;
-
-    public String getColore() {
-        return colore;
-    }
-
-    public void setColore(String colore) {
-        this.colore = colore;
-    }
 
     public String isDisponibile() {
         return isDisponibile;

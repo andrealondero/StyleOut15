@@ -37,11 +37,11 @@ public class UpFragment extends Fragment {
     private DBAdapterLogin db;
 
     public static final String[] titles = new String[] {
-            "Apricot", "AshGray", "Azure", "Beige", "Black", "Blue", "BlueGray", "BlueJeans",
-            "BottleGreen", "Celeste", "Coral", "DarkGreen", "Gold", "Gray", "Green",
-            "GreenBlue", "Lavender", "LightBlue", "Magenta", "MidnightBlue", "MintGreen",
-            "NavyBlue", "OceanBlue", "OceanGreen", "Olive", "Orange", "Pink", "Red", "Rose",
-            "Sand", "Scarlet", "Silver", "Tangerine", "Turquoise", "Violet", "White", "Yellow"};
+            "apricot", "ashGray", "azure", "beige", "black", "blue", "bluegray", "bluejeans",
+            "bottlegreen", "celeste", "coral", "darkGreen", "gold", "gray", "green",
+            "greenblue", "lavender", "lightblue", "magenta", "midnightblue", "mintgreen",
+            "navyblue", "oceanBlue", "oceanGreen", "olive", "orange", "pink", "red", "rose",
+            "sand", "scarlet", "silver", "tangerine", "turquoise", "violet", "white", "yellow"};
 
     public static final String[]hexcodes = {
             "#FACEB1", "#B4BFB7", "#0080FF", "#F5F5DC", "#000000", "#0000FF", "#6699CC", "#5CAEED", "#006B4F",
@@ -95,7 +95,7 @@ public class UpFragment extends Fragment {
             @Override
             public void onItemClick(View view, int position) {
                 Toast.makeText( view.getContext(), ""+position, Toast.LENGTH_SHORT).show();
-                vestito.setTipoVestito(Integer.toString(position+1));
+                vestito.setTipoVestito(Integer.toString(101 + position));
                 vestito.setPic_tag(lstUp.get(position).getModelUpImage());
                 upImageView.setImageResource(lstUp.get(position).getModelUpImage());
             }
@@ -122,7 +122,6 @@ public class UpFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 String itemvalue = parent.getItemAtPosition( position ).toString();
-                Toast.makeText( getActivity(), "SELECTED" + itemvalue, Toast.LENGTH_SHORT ).show();
                 vestito.setColore(itemvalue);
                 vestito.setColorCode(hexcodes[position]);
                 upImageView.setBackgroundColor( Color.parseColor(hexcodes[position]));
@@ -169,7 +168,7 @@ public class UpFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 db.addVestito(vestito.getColore(), vestito.getColorCode(), Integer.parseInt(vestito.isDisponibile()),
-                        vestito.getNome(), "avorio", Integer.parseInt(vestito.getTipoVestito()), vestito.getPic_tag());
+                        vestito.getNome(), "cotone", Integer.parseInt(vestito.getTipoVestito()), vestito.getPic_tag());
                 Toast.makeText(uView.getContext(), "vestito aggiunto", Toast.LENGTH_SHORT).show();
             }
         });
