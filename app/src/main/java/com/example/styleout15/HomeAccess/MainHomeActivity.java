@@ -1,17 +1,19 @@
 package com.example.styleout15.HomeAccess;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.example.styleout15.DataBase.Popolamento;
+import com.example.styleout15.FirstAppAccess.MainSecond;
+import com.example.styleout15.FromArmadioToMainSecond;
 import com.example.styleout15.R;
 
-public class MainHomeActivity extends AppCompatActivity {
+public class MainHomeActivity extends AppCompatActivity implements FromArmadioToMainSecond {
 
     boolean done = false;
 
@@ -20,7 +22,7 @@ public class MainHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_main_home);
 
-        new Popolamento(this);
+//        new Popolamento(this);
 
         Fragment fragment = new FragmentHomeOne();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
@@ -48,5 +50,13 @@ public class MainHomeActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void StartNewIntent() {
+        Intent intent = new Intent( this, MainSecond.class );
+        startActivity( intent );
+        finish();
+
     }
 }

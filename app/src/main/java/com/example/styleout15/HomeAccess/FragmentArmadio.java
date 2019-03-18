@@ -9,13 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.styleout15.DataBase.DBAdapterLogin;
+import com.example.styleout15.FirstAppAccess.MainSecond;
 import com.example.styleout15.R;
 
 public class FragmentArmadio extends Fragment {
 
     public static DBAdapterLogin db;
+    TextView tTextView;
+    TextView uTextView;
+    TextView dTextView;
     ImageButton addButton;
     ImageButton modifyButton;
 
@@ -28,12 +33,14 @@ public class FragmentArmadio extends Fragment {
 
         addButton = view.findViewById(R.id.btnAddwear);
         modifyButton = view.findViewById(R.id.btnModifywear);
+        tTextView = (TextView) view.findViewById(R.id.top_armadio);
+        uTextView = (TextView) view.findViewById(R.id.up_armadio);
+        dTextView = (TextView) view.findViewById(R.id.down_armadio);
 
         addButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragmentHomeTwo = new FragmentHomeTwo();
-                getFragmentManager().beginTransaction().replace( R.id.container, fragmentHomeTwo ).commit();
+                ((MainHomeActivity)getActivity()).StartNewIntent();
             }
         } );
 

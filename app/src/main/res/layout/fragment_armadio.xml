@@ -17,6 +17,7 @@
             android:id="@+id/top_list">
 
             <TextView
+                android:id="@+id/top_armadio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
@@ -38,6 +39,7 @@
                     android:id="@+id/up_list">
 
                     <TextView
+                        android:id="@+id/up_armadio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
@@ -59,6 +61,7 @@
                             android:id="@+id/down_list">
 
                             <TextView
+                                android:id="@+id/down_armadio"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="10dp"
