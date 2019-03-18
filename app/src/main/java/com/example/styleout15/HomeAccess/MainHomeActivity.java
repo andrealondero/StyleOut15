@@ -20,7 +20,7 @@ public class MainHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_main_home);
 
-        new Popolamento(this);
+        //new Popolamento(this);
 
         Fragment fragment = new FragmentHomeOne();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
