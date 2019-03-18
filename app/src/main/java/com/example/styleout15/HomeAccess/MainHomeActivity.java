@@ -20,7 +20,7 @@ public class MainHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_main_home);
 
-        //new Popolamento(this);
+        new Popolamento(this);
 
         Fragment fragment = new FragmentHomeOne();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
@@ -36,10 +36,10 @@ public class MainHomeActivity extends AppCompatActivity {
                         selectedFragment = new FragmentHomeOne();
                         break;
                     case R.id.navigation_dashboard:
-                        selectedFragment = new FragmentHomeTwo();
+                        selectedFragment = new FragmentArmadio();
                         break;
                     case R.id.navigation_registrati:
-                        selectedFragment = new FragmentHomeOne();
+                        selectedFragment = new FragmentLogin();
                         break;
                     case R.id.navigation_settings:
                         selectedFragment = new FragmentHomeOne();

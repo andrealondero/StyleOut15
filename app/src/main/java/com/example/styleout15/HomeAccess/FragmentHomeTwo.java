@@ -44,7 +44,7 @@ public class FragmentHomeTwo extends Fragment {
         imageView = view.findViewById( R.id.upperView );
         imageView2 = view.findViewById( R.id.downView );
 
-        ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
+        ArrayList<Vestito> id = FragmentHomeOne.selectedOutfit;
         StringBuilder sb = new StringBuilder();
         if(id!=null) {
             int i = 0;

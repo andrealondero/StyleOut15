@@ -31,7 +31,8 @@ public class FragmentHomeOne extends Fragment {
     ImageButton btnModifica;
     ImageButton btnArmadio;
     DBAdapterLogin db;
-    ArrayList<Vestito> selectedOutfit;
+    public static ArrayList<Vestito> selectedOutfit;
+    public static boolean CREATO;
     ArrayList<Integer> postFatto;
 
     public FragmentHomeOne() {
@@ -47,6 +48,7 @@ public class FragmentHomeOne extends Fragment {
         final Top top = new Top();
         postFatto = new ArrayList<>();
         selectedOutfit = new ArrayList<>();
+        CREATO = false;
 
         imageView = view.findViewById(R.id.upperView);
         imageView2 = view.findViewById(R.id.downView);
@@ -65,6 +67,7 @@ public class FragmentHomeOne extends Fragment {
         ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
         postFatto.add( id.get( 0 ).getPosFatto() );
         StringBuilder sb = new StringBuilder();
+        selectedOutfit = id;
 
         if(id!=null) {
             int i = 0;
@@ -91,20 +94,23 @@ public class FragmentHomeOne extends Fragment {
         btnConferma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectedOutfit!=null)
+                if (CREATO){
                     db.addOutfitFatto(selectedOutfit.get(0).getSelected(), selectedOutfit);
-                Toast.makeText(getContext(), "Outfit SCELTO", Toast.LENGTH_SHORT).show();
-
-                Fragment fragmentHomeTwo = new FragmentHomeTwo();
-                getFragmentManager().beginTransaction().replace(R.id.container, fragmentHomeTwo).commit();
+                    Toast.makeText(getContext(), "OUTFIT AGGIUNTO, PREMI DI NUOVO", Toast.LENGTH_SHORT).show();
+                    CREATO = false;
+                }
+                else {
+                    Fragment fragmentHomeTwo = new FragmentHomeTwo();
+                    getFragmentManager().beginTransaction().replace( R.id.container, fragmentHomeTwo ).commit();
+                }
             }
         });
 
         btnRifiuta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ArrayList<Vestito> id = db.getVestiti("InvernaleFeriale", pref);
+                CREATO = false;
+                ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
                 StringBuilder sb = new StringBuilder();
                 if(id!=null) {
                     int i = 0;
@@ -136,10 +142,12 @@ public class FragmentHomeOne extends Fragment {
         btnAggiungi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                CREATO = true;
+
                 if(postFatto.size() >= db.getoutfitFattiCount()-1){
                     postFatto.clear();
                 }
-                ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
+                ArrayList<Vestito> id = db.getVestiti("InvernaleFeriale", pref);
                 postFatto.add(id.get(0).getPosFatto());
                 StringBuilder sb = new StringBuilder();
 
@@ -168,6 +176,7 @@ public class FragmentHomeOne extends Fragment {
                         }
                     }
                 }
+                selectedOutfit = id;
 
             }
         });
@@ -183,8 +192,8 @@ public class FragmentHomeOne extends Fragment {
         btnArmadio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragmentArmadioOutfit = new FragmentArmadioOutfit();
-                getFragmentManager().beginTransaction().replace(R.id.container, fragmentArmadioOutfit).commit();
+                Fragment fragmentArmadio = new FragmentArmadio();
+                getFragmentManager().beginTransaction().replace(R.id.container, fragmentArmadio).commit();
             }
         });
 

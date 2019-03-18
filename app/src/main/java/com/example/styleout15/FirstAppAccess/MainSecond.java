@@ -12,7 +12,6 @@ import com.example.styleout15.R;
 
 public class MainSecond extends AppCompatActivity implements FromDoneToHome {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );

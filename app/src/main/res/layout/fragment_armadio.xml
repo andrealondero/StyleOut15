@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/top_list">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="TOP"
+                android:textSize="20dp"
+                android:fontFamily="@font/architects_daughter"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/top_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="165dp" />
+
+        </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/up_list">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:text="UP"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/architects_daughter"/>
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/up_viewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="165dp" />
+
+                </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/down_list">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:text="DOWN"
+                                android:textSize="20dp"
+                                android:fontFamily="@font/architects_daughter"/>
+
+                            <android.support.v4.view.ViewPager
+                                android:id="@+id/down_viewpager"
+                                android:layout_width="match_parent"
+                                android:layout_height="165dp" />
+
+                        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btnAddwear"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/addwearbutton"
+                android:src="@drawable/addwearbutton" />
+
+            <ImageButton
+                android:id="@+id/btnModifywear"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/modifywearbutton"
+                android:src="@drawable/modifywearbutton" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

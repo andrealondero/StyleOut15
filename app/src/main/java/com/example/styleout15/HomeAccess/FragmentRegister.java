@@ -1,4 +1,4 @@
-/*package com.example.styleout15.HomeAccess;
+package com.example.styleout15.HomeAccess;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -42,4 +42,4 @@ public class FragmentRegister extends Fragment {
 
         return view;
     }
-} */
+}
