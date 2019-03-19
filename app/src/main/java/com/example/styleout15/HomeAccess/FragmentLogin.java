@@ -42,14 +42,14 @@ public class FragmentLogin extends Fragment {
                 String emailInserita = email.getText().toString();
                 String passwordInserita = password.getText().toString();
 
-                db.addDati(emailInserita, passwordInserita);
+                db.getLogin(emailInserita, passwordInserita);
                 if(emailInserita != null && passwordInserita!= null) {
                     if(db.isEmailPresent(emailInserita)) {
                         if(db.getPassword(emailInserita).equals(passwordInserita))
-                            Toast.makeText(container.getContext(), "login effettuato", Toast.LENGTH_LONG).show();
+                            Toast.makeText(container.getContext(), "logged", Toast.LENGTH_LONG).show();
                     }
                     else{
-                        Toast.makeText(container.getContext(), "non presente", Toast.LENGTH_LONG).show();
+                        Toast.makeText(container.getContext(), "user not found", Toast.LENGTH_LONG).show();
                     }
                 }
             }

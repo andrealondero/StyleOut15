@@ -34,7 +34,7 @@ public class DBAdapterLogin {
         database.close();
     }
 
-    public void addDati(String email, String password){
+    public void getLogin(String email, String password){
         open();
 
         ContentValues values = new ContentValues();

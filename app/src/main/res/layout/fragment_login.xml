@@ -14,7 +14,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <EditText
                 android:id="@+id/email"
@@ -89,6 +90,7 @@
                 android:id="@+id/btnPassRecovery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:scaleType="fitXY"
                 android:src="@drawable/passwordrecoverybutton"
                 android:background="@drawable/passwordrecoverybutton" />
 
@@ -103,6 +105,7 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:scaleType="fitXY"
                 android:background="@drawable/registerbutton"
                 android:src="@drawable/registerbutton"
                 android:clickable="true"/>

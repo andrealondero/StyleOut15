@@ -28,7 +28,7 @@ public class FragmentHomeOne extends Fragment {
     ImageButton btnRifiuta;
     ImageButton btnAggiungi;
     ImageButton btnModifica;
-    ImageButton btnArmadio;
+    ImageButton btnScegliOutfitFatto;
     DBAdapterLogin db;
     public static ArrayList<Vestito> selectedOutfit;
     public static boolean CREATO;
@@ -59,9 +59,9 @@ public class FragmentHomeOne extends Fragment {
 
         btnConferma = view.findViewById(R.id.btnConferma);
         btnRifiuta = view.findViewById(R.id.btnRifiuta);
-        btnAggiungi = view.findViewById(R.id.btnAggiungi);
+//        btnAggiungi = view.findViewById(R.id.btnAggiungi);
         btnModifica = view.findViewById(R.id.btnModifica);
-        btnArmadio = view.findViewById(R.id.btnOutList);
+        btnScegliOutfitFatto = view.findViewById(R.id.btnOutList);
 
         ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
         postFatto.add( id.get( 0 ).getPosFatto() );
@@ -95,7 +95,7 @@ public class FragmentHomeOne extends Fragment {
             public void onClick(View v) {
                 if (CREATO){
                     db.addOutfitFatto(selectedOutfit.get(0).getSelected(), selectedOutfit);
-                    Toast.makeText(getContext(), "OUTFIT AGGIUNTO, PREMI DI NUOVO", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "OUTFIT ADDED, PRESS AGAIN", Toast.LENGTH_SHORT).show();
                     CREATO = false;
                 }
                 else {
@@ -106,39 +106,6 @@ public class FragmentHomeOne extends Fragment {
         });
 
         btnRifiuta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CREATO = false;
-                ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
-                StringBuilder sb = new StringBuilder();
-                if(id!=null) {
-                    int i = 0;
-                    for (Vestito v1 : id) {
-
-                        int res = 0;
-                        if(Integer.parseInt(v1.getTipoVestito())>100 && Integer.parseInt(v1.getTipoVestito()) < 200) {
-                            res = up.getLstUp().get(up.getTypeUp().indexOf(Integer.parseInt(v1.getTipoVestito())));
-
-                        }
-
-                        else if(Integer.parseInt(v1.getTipoVestito())<100) {
-                            res = top.getLstTop().get(top.getTypeTop().indexOf(Integer.parseInt(v1.getTipoVestito())));
-                            imageView.setImageResource(res);
-                            imageView.setBackgroundColor(Color.parseColor(v1.getColorCode()));
-                        }
-
-                        else {
-                            res = down.getLstDown().get(down.getTypeDown().indexOf(Integer.parseInt(v1.getTipoVestito())));
-                            imageView2.setImageResource(res);
-                            imageView2.setBackgroundColor(Color.parseColor(v1.getColorCode()));
-                        }
-                    }
-                }
-                selectedOutfit = id;
-            }
-        });
-
-        btnAggiungi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CREATO = true;
@@ -188,13 +155,46 @@ public class FragmentHomeOne extends Fragment {
             }
         });
 
-        btnArmadio.setOnClickListener(new View.OnClickListener() {
+        btnScegliOutfitFatto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragmentArmadio = new FragmentArmadio();
-                getFragmentManager().beginTransaction().replace(R.id.container, fragmentArmadio).commit();
-            }
-        });
+//                Fragment fragmentArmadio = new FragmentArmadio();
+//                getFragmentManager().beginTransaction().replace(R.id.container, fragmentArmadio).commit();
+
+ //               btnAggiungi.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+                        CREATO = false;
+                        ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
+                        StringBuilder sb = new StringBuilder();
+                        if(id!=null) {
+                            int i = 0;
+                            for (Vestito v1 : id) {
+
+                                int res = 0;
+                                if(Integer.parseInt(v1.getTipoVestito())>100 && Integer.parseInt(v1.getTipoVestito()) < 200) {
+                                    res = up.getLstUp().get(up.getTypeUp().indexOf(Integer.parseInt(v1.getTipoVestito())));
+
+                                }
+
+                                else if(Integer.parseInt(v1.getTipoVestito())<100) {
+                                    res = top.getLstTop().get(top.getTypeTop().indexOf(Integer.parseInt(v1.getTipoVestito())));
+                                    imageView.setImageResource(res);
+                                    imageView.setBackgroundColor(Color.parseColor(v1.getColorCode()));
+                                }
+
+                                else {
+                                    res = down.getLstDown().get(down.getTypeDown().indexOf(Integer.parseInt(v1.getTipoVestito())));
+                                    imageView2.setImageResource(res);
+                                    imageView2.setBackgroundColor(Color.parseColor(v1.getColorCode()));
+                                }
+                            }
+                        }
+                        selectedOutfit = id;
+                    }
+                });
+ //           }
+ //       });
 
         return view;
     }

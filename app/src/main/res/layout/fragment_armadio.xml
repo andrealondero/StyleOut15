@@ -12,14 +12,15 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/top_list">
 
             <TextView
                 android:id="@+id/top_armadio"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:paddingStart="10dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:text="TOP"
@@ -28,8 +29,10 @@
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/top_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="165dp" />
+                android:layout_width="275dp"
+                android:layout_height="135dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/top_armadio"/>
 
         </RelativeLayout>
 
@@ -40,7 +43,7 @@
 
                     <TextView
                         android:id="@+id/up_armadio"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -50,8 +53,10 @@
 
                     <android.support.v4.view.ViewPager
                         android:id="@+id/up_viewpager"
-                        android:layout_width="match_parent"
-                        android:layout_height="165dp" />
+                        android:layout_width="275dp"
+                        android:layout_height="135dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/up_armadio"/>
 
                 </RelativeLayout>
 
@@ -62,7 +67,7 @@
 
                             <TextView
                                 android:id="@+id/down_armadio"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:paddingStart="10dp"
                                 android:textColor="@color/colorPrimaryDark"
@@ -72,21 +77,24 @@
 
                             <android.support.v4.view.ViewPager
                                 android:id="@+id/down_viewpager"
-                                android:layout_width="match_parent"
-                                android:layout_height="165dp" />
+                                android:layout_width="275dp"
+                                android:layout_height="135dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_below="@id/down_armadio"/>
 
                         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <ImageButton
                 android:id="@+id/btnAddwear"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/addwearbutton"
                 android:src="@drawable/addwearbutton" />
 
@@ -96,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:scaleType="fitXY"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/modifywearbutton"
                 android:src="@drawable/modifywearbutton" />
 
