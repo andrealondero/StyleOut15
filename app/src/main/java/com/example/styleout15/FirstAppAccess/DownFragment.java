@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -32,7 +33,7 @@ public class DownFragment extends Fragment {
     private RecyclerView myRecyclerViewDown;
     private List<Down> lstDown;
     private ImageView downImageView;
-    private Button button;
+    private ImageButton button;
     private Vestito vestito;
     private DBAdapterLogin db;
 

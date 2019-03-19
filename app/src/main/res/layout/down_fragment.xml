@@ -178,12 +178,13 @@
 
         </LinearLayout>
 
-        <Button
+        <ImageButton
             android:id="@+id/downButtonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="ADD" />
+            android:src="@drawable/addwearbutton"
+            android:background="@drawable/addwearbutton" />
 
     </LinearLayout>
 

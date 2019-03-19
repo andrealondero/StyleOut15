@@ -118,7 +118,7 @@ public class FragmentHomeOne extends Fragment {
                 StringBuilder sb = new StringBuilder();
 
                 for(Vestito v1: id){
-                    Toast.makeText(getContext(), sb.append(v1.getId())+ " ", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getContext(), sb.append(v1.getId())+ " ", Toast.LENGTH_SHORT).show();
                 }
                 if(id!=null) {
                     for (Vestito v1 : id) {
