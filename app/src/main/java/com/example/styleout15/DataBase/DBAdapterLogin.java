@@ -455,7 +455,7 @@ public class DBAdapterLogin {
                     lista_vestiti.addAll(ripiego.get(i));
                 }
             }
-            else{
+            /*else{
 
                 ArrayList<Vestito> intimo = new ArrayList<>();
 
@@ -501,7 +501,7 @@ public class DBAdapterLogin {
                     }
                 }
                 lista_vestiti.add(selezionati.get(new Random().nextInt(selezionati.size())));
-            }
+            }*/
         }
 
         return lista_vestiti;
