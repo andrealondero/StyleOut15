@@ -9,6 +9,11 @@
     tools:context=".FirstAppAccess.MainActivity"
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
@@ -19,15 +24,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/architects_daughter"
-            android:text="SELECT YOUR WAY"
+            android:text="HOW TO RULE THE STYLE"
+            android:layout_marginTop="5dp"
             android:textAlignment="center"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/grey"
             android:textSize="18sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
 
-    <LinearLayout
+        <android.support.v4.view.ViewPager
+            android:id="@+id/tutorial"
+            android:layout_width="250dp"
+            android:layout_height="500dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp">
+
+        </android.support.v4.view.ViewPager>
+
+    <!--LinearLayout
         android:id="@+id/body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,15 +115,16 @@
 
         </RelativeLayout>
 
-    </LinearLayout>
+    </LinearLayout-->
 
     <Button
         android:id="@+id/done"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/body"
         android:background="@drawable/appendino"
         android:visibility="invisible"
         app:srcCompat="@drawable/appendino" />
+
+    </LinearLayout>
 
 </RelativeLayout>
