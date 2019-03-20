@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import com.example.styleout15.DataBase.DBAdapterLogin;
 import com.example.styleout15.DataBase.Popolamento;
 import com.example.styleout15.FirstAppAccess.MainSecond;
 import com.example.styleout15.FromArmadioToMainSecond;
@@ -16,13 +17,14 @@ import com.example.styleout15.R;
 public class MainHomeActivity extends AppCompatActivity implements FromArmadioToMainSecond {
 
     boolean done = false;
+    public static DBAdapterLogin db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_main_home);
+        db = new DBAdapterLogin(this);
 
-//        new Popolamento(this);
 
         Fragment fragment = new FragmentHomeOne();
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();

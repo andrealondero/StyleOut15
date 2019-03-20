@@ -22,7 +22,7 @@ public class UpViewAdapter extends PagerAdapter {
 
     private Context uContext;
     private LayoutInflater uLayoutInflater;
-    private DBAdapterLogin db = FragmentArmadio.db;
+    private DBAdapterLogin db = MainHomeActivity.db;
     private Up up = new Up();
 
 

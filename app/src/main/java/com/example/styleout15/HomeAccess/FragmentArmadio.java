@@ -62,8 +62,4 @@ public class FragmentArmadio extends Fragment {
 
         return view;
     }
-
-
-
-
 }

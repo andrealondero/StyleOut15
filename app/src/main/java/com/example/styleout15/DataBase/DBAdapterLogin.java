@@ -77,6 +77,7 @@ public class DBAdapterLogin {
         database.insert(DBHelper.TABLE_OUTFIT, null, values);
 
         close();
+
     }
 
     public void addOutfitFatto(int outfit_collegato, ArrayList<Vestito> vestiti){

@@ -23,7 +23,7 @@ public class Popolamento {
     private void popolaTipoOutfit(){
         db.addTipoOutfit(1, 2, "Completo", null, null);
         int[] i = {1};
-        int[] tv1 = {3, 4, 5, 6, 7, 8, 201};
+        int[] tv1 = {3, 4, 5, 6, 7, 8, 201, 202, 203, 204, 205, 206, 209};
         int[] tv2 = {101};
         db.addTipoOutfit(2, 2, "Sopra", i, tv1);
         db.addTipoOutfit(3, 2, "Intimo", i, tv2);

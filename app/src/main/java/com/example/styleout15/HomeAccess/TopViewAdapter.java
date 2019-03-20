@@ -24,7 +24,7 @@ public class TopViewAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private DBAdapterLogin db = FragmentArmadio.db;
+    private DBAdapterLogin db = MainHomeActivity.db;
     private Top top = new Top();
 
 

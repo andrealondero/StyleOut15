@@ -12,9 +12,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.styleout15.DataBase.DBAdapterLogin;
+import com.example.styleout15.DataBase.Vestito;
 import com.example.styleout15.HomeAccess.ModifyOutfit.DownOutfitViewAdapter;
 import com.example.styleout15.HomeAccess.ModifyOutfit.TopOutfitViewAdapter;
 import com.example.styleout15.R;
+
+import java.util.ArrayList;
 
 import static com.example.styleout15.HomeAccess.FragmentHomeOne.selectedOutfit;
 
@@ -26,6 +29,8 @@ public class FragmentModificaOutfit extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        ArrayList<Vestito> outfit = new ArrayList<>();
 
         View view = inflater.inflate( R.layout.fragment_modifica_outfit, container, false );
         db = new DBAdapterLogin(view.getContext());
@@ -51,6 +56,10 @@ public class FragmentModificaOutfit extends Fragment {
         viewPager.setAdapter(topoutfitViewAdapter);
         DownOutfitViewAdapter downoutfitViewAdapter = new DownOutfitViewAdapter(getContext());
         viewPager2.setAdapter(downoutfitViewAdapter);
+
+        int i = viewPager.getCurrentItem();
+        Vestito v = topoutfitViewAdapter.getVest().get(viewPager.getCurrentItem());
+        outfit.add(v);
 
         return view;
     }

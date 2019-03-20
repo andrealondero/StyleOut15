@@ -22,7 +22,7 @@ public class DownViewAdapter extends PagerAdapter {
 
     private Context dContext;
     private LayoutInflater dLayoutInflater;
-    private DBAdapterLogin db = FragmentArmadio.db;
+    private DBAdapterLogin db = MainHomeActivity.db;
     private Down down = new Down();
 
 

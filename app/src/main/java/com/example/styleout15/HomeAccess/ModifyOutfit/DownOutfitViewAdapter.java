@@ -14,6 +14,7 @@ import com.example.styleout15.DataBase.DBAdapterLogin;
 import com.example.styleout15.DataBase.Vestito;
 import com.example.styleout15.FirstAppAccess.Down.Down;
 import com.example.styleout15.HomeAccess.FragmentArmadio;
+import com.example.styleout15.HomeAccess.MainHomeActivity;
 import com.example.styleout15.R;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class DownOutfitViewAdapter extends PagerAdapter {
 
     private Context dContext;
     private LayoutInflater dLayoutInflater;
-    private DBAdapterLogin db = FragmentArmadio.db;
+    private DBAdapterLogin db = MainHomeActivity.db;
     private Down down = new Down();
 
 
