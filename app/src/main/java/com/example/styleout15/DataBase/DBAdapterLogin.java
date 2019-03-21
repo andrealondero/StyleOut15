@@ -2,6 +2,7 @@ package com.example.styleout15.DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -46,7 +47,7 @@ public class DBAdapterLogin {
         close();
     }
 
-    public void addVestito(String colore, String colorCode, int disponibile, String nome, String tessuto, int tipoVestito_ID, int pic_tag){
+    public void addVestito(String colore, String colorCode, int disponibile, String nome, String tessuto, int tipoVestito_ID, int pic_tag, int giorni){
         open();
 
         ContentValues values = new ContentValues();
@@ -57,6 +58,7 @@ public class DBAdapterLogin {
         values.put("TESSUTO", tessuto);
         values.put("TIPOVESTITO_ID", tipoVestito_ID);
         values.put("PIC_TAG", pic_tag);
+        values.put("GIORNI", giorni);
 
         database.insert(DBHelper.TABLE_VESTITI, null, values);
 
@@ -173,6 +175,7 @@ public class DBAdapterLogin {
                 v.setTessuto(cursor.getString(5));
                 v.setTipoVestito(cursor.getString(6));
                 v.setPic_tag(Integer.parseInt(cursor.getString(8)));
+                v.setGiorni(cursor.getInt(9));
 
                 if (tipo.equals("top")) {
                     if (Integer.parseInt(v.getTipoVestito()) < 100) {
@@ -279,6 +282,7 @@ public class DBAdapterLogin {
                 v.setTessuto(cursor5.getString(5));
                 v.setTipoVestito(cursor5.getString(6));
                 v.setPic_tag(Integer.parseInt(cursor5.getString(8)));
+                v.setGiorni(cursor5.getInt(9));
                 v.setPosFatto(n);
                 outfitFatto.add(v);
             } while (cursor5.moveToNext());
@@ -380,6 +384,7 @@ public class DBAdapterLogin {
                         v.setTessuto(cursor5.getString(5));
                         v.setTipoVestito(cursor5.getString(6));
                         v.setPic_tag(Integer.parseInt(cursor5.getString(8)));
+                        v.setGiorni(cursor5.getInt(9));
                         v.setSelected(selected_out);
 
                         if(sopra.contains(cursor5.getString(6)) && Integer.parseInt(cursor5.getString(6))<200) {

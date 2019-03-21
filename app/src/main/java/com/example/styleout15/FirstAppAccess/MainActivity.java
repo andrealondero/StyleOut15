@@ -6,9 +6,13 @@ import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
+import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.example.styleout15.DataBase.Popolamento;
 import com.example.styleout15.HomeAccess.MainHomeActivity;
@@ -16,13 +20,18 @@ import com.example.styleout15.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SeekBar seekBarTop;
+    private SeekBar seekBarDown;
+    private ImageButton btnDone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
+        final Intent intent = new Intent(this, MainSecond.class);
 
         final SharedPreferences prefs = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
         String logPref = prefs.getString("KEY FIRST ACCESS", "first");
-        SharedPreferences.Editor editor = prefs.edit();
+        final SharedPreferences.Editor editor = prefs.edit();
         if (logPref.equals("not first")) {
             startActivity(new Intent(MainActivity.this, MainHomeActivity.class ));
         }
@@ -32,65 +41,66 @@ public class MainActivity extends AppCompatActivity {
             new Popolamento(this);
         }
         setContentView( R.layout.activity_main );
-        final Button button = findViewById( R.id.done );
-        final CheckBox checkelegant = findViewById( R.id.elegantaccess );
-        final CheckBox checkformal = findViewById( R.id.formalaccess );
-        final CheckBox checkcasual = findViewById( R.id.casualaccess );
-        final CheckBox checkusual = findViewById( R.id.usualaccess );
 
-        checkelegant.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
+        seekBarTop = findViewById(R.id.seekBar);
+        seekBarDown = findViewById(R.id.seekBar1);
+        btnDone = findViewById(R.id.done);
+
+        int topPref = prefs.getInt("TOP_PREFS", 1);
+        int downPref = prefs.getInt("DOWN_PREFS", 1);
+
+        seekBarTop.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int topProgress = 0;
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if (buttonView.isChecked()) {
-                    button.setEnabled( true );
-                    startActivity( new Intent( MainActivity.this, MainSecond.class ) );
-                } else {
-                    button.setEnabled( false );
-                }
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                topProgress = progress+1;
+                editor.putInt("TOP_PREFS", topProgress);
+                editor.commit();
+                Toast.makeText(getApplicationContext(), ""+prefs.getInt("TOP_PREFS", 1), Toast.LENGTH_SHORT).show();
             }
-        } );
 
-        checkformal.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
-                if (buttonView.isChecked()) {
-                    button.setEnabled( true );
-                    startActivity( new Intent( MainActivity.this, MainSecond.class ) );
-                } else {
-                    button.setEnabled( false );
-                }
             }
-        } );
 
-        checkcasual.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
-                if (buttonView.isChecked()) {
-                    button.setEnabled( true );
-                    startActivity( new Intent( MainActivity.this, MainSecond.class ) );
-                } else {
-                    button.setEnabled( false );
-                }
             }
-        } );
+        });
 
-        checkusual.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
+
+
+        seekBarDown.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int downProgress = 0;
+
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                downProgress = progress+1;
+                editor.putInt("DOWN_PREFS", downProgress);
+                editor.commit();
+                Toast.makeText(getApplicationContext(), ""+prefs.getInt("DOWN_PREFS", 1), Toast.LENGTH_SHORT).show();
 
-                if (buttonView.isChecked()) {
-                    button.setEnabled( true );
-                    startActivity( new Intent( MainActivity.this, MainSecond.class ) );
-                } else {
-                    button.setEnabled( false );
-                }
             }
-        } );
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setElevation(0);
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
+            }
+        });
+
     }
 }

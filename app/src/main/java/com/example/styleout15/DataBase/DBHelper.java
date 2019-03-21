@@ -35,7 +35,8 @@ public class DBHelper extends SQLiteOpenHelper {
             "TESSUTO TEXT," +
             "TIPOVESTITO_ID INTEGER," +
             "STYLE TEXT," +
-            "PIC_TAG INTEGER" +
+            "PIC_TAG INTEGER," +
+            "GIORNI INTEGER" +
             ")";
 
     public static final String CREATE_OUTFIT_TABLE = "CREATE TABLE outfit(" +

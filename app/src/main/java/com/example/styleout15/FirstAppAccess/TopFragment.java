@@ -170,7 +170,7 @@ public class TopFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 db.addVestito(vestito.getColore(), vestito.getColorCode(), Integer.parseInt(vestito.isDisponibile()),
-                        vestito.getNome(), "cotone", Integer.parseInt(vestito.getTipoVestito()), vestito.getPic_tag());
+                        vestito.getNome(), "cotone", Integer.parseInt(vestito.getTipoVestito()), vestito.getPic_tag(), 0);
                 Toast.makeText(view.getContext(), "vestito aggiunto", Toast.LENGTH_SHORT).show();
             }
         });

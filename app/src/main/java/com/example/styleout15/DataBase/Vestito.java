@@ -8,6 +8,16 @@ public class Vestito {
 
     private Integer posFatto;
 
+    private Integer giorni;
+
+    public Integer getGiorni() {
+        return giorni;
+    }
+
+    public void setGiorni(Integer giorni) {
+        this.giorni = giorni;
+    }
+
     public Integer getPosFatto() {
         return posFatto;
     }

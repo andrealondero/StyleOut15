@@ -49,6 +49,7 @@ public class FragmentHomeTwo extends Fragment {
         if(id!=null) {
             int i = 0;
             for (Vestito v1 : id) {
+                v1.setGiorni(v1.getGiorni()+1);
 
                 int res = 0;
                 if(Integer.parseInt(v1.getTipoVestito())>100 && Integer.parseInt(v1.getTipoVestito()) < 200)
