@@ -94,3 +94,49 @@ public class MainHomeActivity extends AppCompatActivity implements FromArmadioTo
 
     }
 }
+
+/*    boolean done = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView( R.layout.activity_main_home);
+
+//        new Popolamento(this);
+
+        Fragment fragment = new FragmentHomeOne();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
+
+        final BottomNavigationView bottomNavigationView = findViewById(R.id.navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        selectedFragment = new FragmentHomeOne();
+                        break;
+                    case R.id.navigation_dashboard:
+                        selectedFragment = new FragmentArmadio();
+                        break;
+                    case R.id.navigation_registrati:
+                        selectedFragment = new FragmentLogin();
+                        break;
+                    case R.id.navigation_settings:
+                        selectedFragment = new FragmentHomeOne();
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, selectedFragment).commit();
+                return false;
+            }
+        });
+    }
+
+    @Override
+    public void StartNewIntent() {
+        Intent intent = new Intent( this, MainSecond.class );
+        startActivity( intent );
+        finish();
+
+    }
+} */

@@ -41,9 +41,9 @@ public class FragmentModificaOutfit extends Fragment {
             @Override
             public void onClick(View v) {
 
-                    db.addOutfitFatto(selectedOutfit.get(0).getSelected(), selectedOutfit);
-                    Toast.makeText(getContext(), "OUTFIT ADDED, PRESS AGAIN", Toast.LENGTH_SHORT).show();
-                }
+                db.addOutfitFatto(selectedOutfit.get(0).getSelected(), selectedOutfit);
+                Toast.makeText(getContext(), "OUTFIT ADDED, PRESS AGAIN", Toast.LENGTH_SHORT).show();
+            }
         } );
 
         ViewPager viewPager;
@@ -64,3 +64,39 @@ public class FragmentModificaOutfit extends Fragment {
         return view;
     }
 }
+
+/*    public static DBAdapterLogin db;
+    ImageButton confirmOutfit;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        View view = inflater.inflate( R.layout.fragment_modifica_outfit, container, false );
+        db = new DBAdapterLogin(view.getContext());
+
+        confirmOutfit = view.findViewById(R.id.btnConfirmoutfit);
+        confirmOutfit.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                    db.addOutfitFatto(selectedOutfit.get(0).getSelected(), selectedOutfit);
+                    Toast.makeText(getContext(), "OUTFIT ADDED, PRESS AGAIN", Toast.LENGTH_SHORT).show();
+                }
+        } );
+
+        ViewPager viewPager;
+        ViewPager viewPager2;
+
+        viewPager = view.findViewById(R.id.top_outfit_viewpager);
+        viewPager2 = view.findViewById(R.id.down_outfit_viewpager);
+
+        TopOutfitViewAdapter topoutfitViewAdapter = new TopOutfitViewAdapter(getContext());
+        viewPager.setAdapter(topoutfitViewAdapter);
+        DownOutfitViewAdapter downoutfitViewAdapter = new DownOutfitViewAdapter(getContext());
+        viewPager2.setAdapter(downoutfitViewAdapter);
+
+        return view;
+    }
+} */

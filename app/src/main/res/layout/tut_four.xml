@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:id="@+id/outlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/outfitlist"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="You can press the OUTFITLIST button to make the app suggest created outfits, if you did not create an outfit, well, don't press it!"
+        android:layout_below="@id/outlist"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"/>
+
+    <ImageView
+        android:id="@+id/modify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/modify"
+        android:layout_below="@id/txt2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="By pressing the MODIFY button you can create an outfit by choosing clothes from the closet."
+        android:layout_below="@id/modify"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+</RelativeLayout>
