@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class FragmentHomeOne extends Fragment {
     DBAdapterLogin db;
     public static ArrayList<Vestito> selectedOutfit;
     public static boolean CREATO;
-    ArrayList<Integer> postFatto;
+    public static ArrayList<Integer> postFatto;
 
     public FragmentHomeOne() {
     }
@@ -66,9 +67,9 @@ public class FragmentHomeOne extends Fragment {
         btnScegliOutfitFatto = view.findViewById(R.id.btnOutList);
 
         ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
-        postFatto.add( id.get( 0 ).getPosFatto() );
+        //postFatto.add( id.get( 0 ).getPosFatto() );
         StringBuilder sb = new StringBuilder();
-        selectedOutfit = id;
+        //selectedOutfit = id;
 
         if(id!=null) {
             int i = 0;
@@ -168,7 +169,11 @@ public class FragmentHomeOne extends Fragment {
 //                    public void onClick(View v) {
                         CREATO = false;
                         ArrayList<Vestito> id = db.getVestitiFatti("InvernaleFeriale", pref, postFatto);
+                        //postFatto.add( id.get( 0 ).getPosFatto() );
                         StringBuilder sb = new StringBuilder();
+                        for(Vestito i : id)
+                            sb.append(i.getId()+" ");
+                        Toast.makeText(view.getContext(), sb, Toast.LENGTH_SHORT).show();
                         if(id!=null) {
                             int i = 0;
                             for (Vestito v1 : id) {

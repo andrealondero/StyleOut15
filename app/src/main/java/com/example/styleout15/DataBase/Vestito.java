@@ -2,7 +2,7 @@ package com.example.styleout15.DataBase;
 
 public class Vestito {
 
-    private String id;
+    private Integer id;
 
     private Integer selected;
 
@@ -34,11 +34,11 @@ public class Vestito {
         this.selected = selected;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -61,19 +61,19 @@ public class Vestito {
         this.colorCode = colorCode;
     }
 
-    private String isDisponibile;
+    private int disponibile;
     private String nome;
     private String tessuto;
     private String tipoVestito;
     private String style;
     private int pic_tag;
 
-    public String isDisponibile() {
-        return isDisponibile;
+    public int isDisponibile() {
+        return disponibile;
     }
 
-    public void setDisponibile(String disponibile) {
-        isDisponibile = disponibile;
+    public void setDisponibile(int disponibile) {
+        this.disponibile = disponibile;
     }
 
     public String getNome() {

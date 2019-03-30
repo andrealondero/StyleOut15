@@ -1,11 +1,14 @@
 package com.example.styleout15.FirstAppAccess;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.styleout15.DataBase.Popolamento;
 import com.example.styleout15.FromDoneToHome;
 import com.example.styleout15.HomeAccess.MainHomeActivity;
 import com.example.styleout15.R;
@@ -14,6 +17,19 @@ public class MainSecond extends AppCompatActivity implements FromDoneToHome {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        final SharedPreferences prefs = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+        String logPref = prefs.getString("KEY FIRST ACCESS", "first");
+        final SharedPreferences.Editor editor = prefs.edit();
+        if (logPref.equals("not first")) {
+            startActivity(new Intent(this, MainHomeActivity.class ));
+        }
+        else {
+            editor.putString("KEY FIRST ACCESS", "not first");
+            editor.commit();
+            new Popolamento(this);
+        }
+
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_second );
         TabLayout tabLayout;

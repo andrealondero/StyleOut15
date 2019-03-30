@@ -84,7 +84,7 @@ public class TopFragment extends Fragment {
 
         vestito = new Vestito();
         vestito.setNome("Vestito");
-        vestito.setDisponibile("1");
+        vestito.setDisponibile(1);
 
         myRecyclerView = (RecyclerView) view.findViewById(R.id.top_recyclerview);
         TopRecyclerAdapter recyclerViewAdapter = new TopRecyclerAdapter(getContext(), lstTop);
@@ -169,7 +169,7 @@ public class TopFragment extends Fragment {
         button.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.addVestito(vestito.getColore(), vestito.getColorCode(), Integer.parseInt(vestito.isDisponibile()),
+                db.addVestito(vestito.getColore(), vestito.getColorCode(), vestito.isDisponibile(),
                         vestito.getNome(), "cotone", Integer.parseInt(vestito.getTipoVestito()), vestito.getPic_tag(), 0);
                 Toast.makeText(view.getContext(), "vestito aggiunto", Toast.LENGTH_SHORT).show();
             }

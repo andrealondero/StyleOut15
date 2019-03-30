@@ -46,15 +46,15 @@ public class MainHomeActivity extends AppCompatActivity implements FromArmadioTo
 
         for(Vestito v : vest){
             if(v.getGiorni() == prefTop) {
-                v.setDisponibile("0");
-                v.setGiorni(0);
+                db.setVestito(v.getId(), "DISPONIBILE", 0);
+                db.setVestito(v.getId(), "GIORNI", 0);
             }
         }
 
         for(Vestito v : vestDown){
             if(v.getGiorni() == prefDown) {
-                v.setDisponibile("0");
-                v.setGiorni(0);
+                db.setVestito(v.getId(), "DISPONIBILE", 0);
+                db.setVestito(v.getId(), "GIORNI", 0);
             }
         }
 

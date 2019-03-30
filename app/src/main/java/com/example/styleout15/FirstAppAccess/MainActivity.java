@@ -29,17 +29,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         final Intent intent = new Intent(this, MainSecond.class);
 
+
+
         final SharedPreferences prefs = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+
         String logPref = prefs.getString("KEY FIRST ACCESS", "first");
         final SharedPreferences.Editor editor = prefs.edit();
+
         if (logPref.equals("not first")) {
-            startActivity(new Intent(MainActivity.this, MainHomeActivity.class ));
+            startActivity(new Intent(this, MainHomeActivity.class ));
         }
-        else {
-            editor.putString("KEY FIRST ACCESS", "not first");
-            editor.commit();
-            new Popolamento(this);
-        }
+
         setContentView( R.layout.activity_main );
 
         seekBarTop = findViewById(R.id.seekBar);

@@ -9,7 +9,7 @@
         android:id="@+id/imagine"
         android:layout_width="100dp"
         android:layout_height="180dp"
-        android:src="@drawable/app_hometwo"
+        android:src="@drawable/add"
         android:scaleType="fitXY"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"/>
